@@ -38,3 +38,5 @@ mVar.addFilesByWildcard("moss/*/*[!Test].java")
 url = mVar.send()
 
 print ("Report Url: " + url)
+mVar.saveWebPage(url, "moss/report.html")
+mosspy.download_report(url,"moss/report/", connections=8)
