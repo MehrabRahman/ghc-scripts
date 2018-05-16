@@ -1,7 +1,7 @@
 #Python 3
 #Clone assignment repositories
 
-import os, subprocess, shutil, mosspy
+import os, glob, shutil, mosspy
 
 print("Enter classroom organization:")
 classroom = input()
@@ -25,13 +25,16 @@ for u in users:
     os.system("git clone http://github.com/{}/{}-{}".format(classroom, assignment, u))
     os.mkdir(os.path.join("moss", u))
 
-for root, dir, files in os.walk(os.getcwd()):
+""" for root, dir, files in os.walk(os.getcwd()):
     for file in files:
         if ".java" in file:
             if "Test" not in file:
                 for u in users:
                     if u in root:
-                        shutil.copy(os.path.join(root, file), os.path.join(mossDir, u))
+                        shutil.copy(os.path.join(root, file), os.path.join(mossDir, u)) """
+
+for file in glob.iglob('*.java', recursive=True):
+    print(filename)
 
 mVar = mosspy.Moss(mossid, "python")
 mVar.addFilesByWildcard("moss/*/*[!Test].java")
